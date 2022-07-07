@@ -1,0 +1,26 @@
+syntax = "proto3";
+option go_package = "./;ids";
+
+service IDsInterface {
+	rpc GetID(Request) returns (ResponseID) {}
+	rpc GetServID(Request) returns (Response) {}
+}
+
+message Request {
+	repeated int32 servID = 1;
+}
+
+message Response {
+    repeated int32 servID = 1;
+}
+
+
+message ResponseID {
+    uint64 iD = 1;
+    Code code = 2 ;
+}
+
+enum Code{
+    SUCC = 0;
+    FIELD = 1;
+}
